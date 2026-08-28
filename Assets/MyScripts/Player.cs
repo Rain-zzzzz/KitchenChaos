@@ -35,7 +35,7 @@ public class Player : MonoBehaviour, IKitchenObjParent
 
     private void Start()
     {
-        //目的是只在按下E产生交互
+        //目的是只在按下E/F产生交互
         gameInput.OnInteractionAction += GameInput_OnInteractionAction;
         gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
     }
@@ -54,6 +54,7 @@ public class Player : MonoBehaviour, IKitchenObjParent
 
     private void GameInput_OnInteractionAction(object sender, EventArgs e)
     {
+        if (!KitchenGameManager.Instance.Is_GamePlaying()) return;
         RaycastInteract();
         //E被选择的柜台进行交互
         if (selectedCounter != null)
@@ -64,6 +65,7 @@ public class Player : MonoBehaviour, IKitchenObjParent
 
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
     {
+        if (!KitchenGameManager.Instance.Is_GamePlaying()) return;
         RaycastInteract();
         //F被选择的柜台进行交互
         if (selectedCounter != null)

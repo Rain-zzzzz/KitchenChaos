@@ -63,6 +63,7 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioClipArray[Random.Range(0, audioClipArray.Length)], position, volume);
     }
 
+    //全局音效
     private void PlaySound(AudioClip audioClip, Vector3 position, float volume = 1f)
     {
         AudioSource.PlayClipAtPoint(audioClip, position, volume);

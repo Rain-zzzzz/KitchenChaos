@@ -10,6 +10,7 @@ public class DeliveryManagerUI : MonoBehaviour
 
     private void Awake()
     {
+        gameObject.SetActive(true);
         recipeTemplate.gameObject.SetActive(false);
     }
 

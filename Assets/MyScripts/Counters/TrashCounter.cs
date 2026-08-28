@@ -7,6 +7,11 @@ public class TrashCounter : BaseCounter
 {
     public static event EventHandler OnAnyTrashedSomething;
 
+    public new static void ResetStaticData()
+    {
+        OnAnyTrashedSomething = null;
+    }
+
     public override void Interact(Player player)
     {
         if (player.HasKitchenObj())

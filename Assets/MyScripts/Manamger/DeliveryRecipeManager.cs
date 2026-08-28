@@ -23,6 +23,7 @@ public class DeliveryRecipeManager : MonoBehaviour
     private float timer = 0f;
     private float spawnRecipeTimeMax = 5f;
     private int waitingRecipesNumMax = 5;
+    private int successfulRecipesAmount;
 
     private void Awake()
     {
@@ -83,10 +84,12 @@ public class DeliveryRecipeManager : MonoBehaviour
                 }
                 else
                 {
+                    successfulRecipesAmount++;
+
                     waitingRecipeList.RemoveAt(0);
                     EndSpawnRecipe?.Invoke(this, EventArgs.Empty);
                     OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
-                    Debug.Log("需求菜单和盘子中的菜品相符合");
+                    Debug.Log("成功！！需求菜单和盘子中的菜品相符合");
                     return true;
                 }
             }
@@ -107,5 +110,10 @@ public class DeliveryRecipeManager : MonoBehaviour
     public List<SinglePecipeSO> GetWaitingRecipeList()
     {
         return waitingRecipeList;
+    }
+
+    public int GetSuccessfulRecipesAmount()
+    {
+        return successfulRecipesAmount;
     }
 }
