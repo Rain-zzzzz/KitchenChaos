@@ -27,3 +27,8 @@ sysinfo.txt
 *.app
 *.vsidx
 crashlytics-build.properties
+
+# IDE / generated (added by tooling)
+.vs/
+*.slnx
+TempBuild/
